@@ -1,0 +1,58 @@
+<div class="signup-container">
+  <div class="signup-card">
+    <h1 class="title">
+      <span class="wave-text">T</span><span class="wave-text">y</span><span class="wave-text">p</span><span class="wave-text">i</span><span class="wave-text">n</span><span class="wave-text">g</span>
+      <span> </span>
+      <span class="wave-text">T</span><span class="wave-text">e</span><span class="wave-text">s</span><span class="wave-text">t</span>
+      <span> </span>
+      <span class="wave-text">S</span><span class="wave-text">i</span><span class="wave-text">g</span><span class="wave-text">n</span><span class="wave-text">u</span><span class="wave-text">p</span>
+    </h1>
+    <h2 class="subtitle">Create your account to start typing!</h2>
+
+    <form (ngSubmit)="onSignup()" #signupForm="ngForm">
+      <div class="input-group">
+        <input 
+          type="email" 
+          id="email" 
+          name="email" 
+          placeholder="Email ID" 
+          required
+          [(ngModel)]="formData.email">
+      </div>
+      <div class="input-group">
+        <input 
+          type="password" 
+          id="password" 
+          name="password" 
+          placeholder="Password" 
+          required
+          [(ngModel)]="formData.password">
+      </div>
+      <div class="input-group">
+        <input 
+          type="password" 
+          id="confirmPassword" 
+          name="confirmPassword" 
+          placeholder="Confirm Password" 
+          required
+          [(ngModel)]="formData.confirmPassword">
+      </div>
+      <div class="input-group">
+        <input 
+          type="date" 
+          id="birthday" 
+          name="birthday" 
+          required
+          [(ngModel)]="formData.birthday">
+      </div>
+
+      <button type="submit" class="btn btn-signup" [disabled]="!signupForm.valid">
+        Sign Up
+      </button>
+
+      <button type="button" class="btn btn-login" routerLink="/login">
+        Back to Login
+      </button>
+    </form>
+  </div>
+</div>

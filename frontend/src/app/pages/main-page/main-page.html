@@ -1,0 +1,53 @@
+<div class="main-container" (click)="focusHiddenInput()">
+  <div class="main-card">
+    <h2 class="title">Typing Speed Test</h2>
+    
+    <div class="difficulty-selector">
+      <button 
+        class="btn-difficulty"
+        [class.active]="difficulty === 'beginner'"
+        (click)="setDifficulty('beginner')"
+        [disabled]="testInProgress">
+        Beginner
+      </button>
+      <button 
+        class="btn-difficulty"
+        [class.active]="difficulty === 'intermediate'"
+        (click)="setDifficulty('intermediate')"
+        [disabled]="testInProgress">
+        Intermediate
+      </button>
+      <button 
+        class="btn-difficulty"
+        [class.active]="difficulty === 'pro'"
+        (click)="setDifficulty('pro')"
+        [disabled]="testInProgress">
+        Pro
+      </button>
+    </div>
+
+    <div class="timer-display">
+      Time: <span class="result-value">{{ timer }}s</span>
+    </div>
+
+    <div class="sentence-container">
+      <span *ngFor="let char of sentenceArray; let i = index" [ngClass]="[char.class, (i === currentIndex && testInProgress ? 'current' : '')]">{{ char.char }}</span>
+    </div>
+
+    <input type="text" #hiddenInput class="hidden-input" (input)="onInput($event)" [disabled]="!testInProgress">
+
+    <button id="start-btn" class="btn btn-start" (click)="startTest()" [disabled]="testInProgress">
+      {{ testInProgress ? 'Typing...' : (results.wpm ? 'Start Again' : 'Start') }}
+    </button>
+
+    <div class="results" *ngIf="results.wpm !== null">
+      <h3 class="subtitle">Results</h3>
+      <p>WPM: <span class="result-value">{{ results.wpm }}</span></p>
+      <p>Accuracy: <span class="result-value">{{ results.accuracy }}%</span></p>
+    </div>
+
+    <button class="btn btn-stats" routerLink="/stats">
+      View My Stats
+    </button>
+  </div>
+</div>

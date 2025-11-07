@@ -1,0 +1,27 @@
+<div class="stats-container">
+  <div class="stats-card">
+    <h2 class="title">Your Typing Stats</h2>
+
+    <div class="sessions-list">
+      <h3 class="subtitle">Previous Sessions</h3>
+      <!-- This is a fallback message that shows if there are no stats -->
+      <p *ngIf="stats.length === 0 && !isLoading">You have no saved sessions yet. Go complete a test!</p>
+      
+      <!-- This list will be generated from the data we fetch -->
+      <div *ngFor="let stat of stats" class="stat-item">
+        <span class="date">{{ stat.date | date:'short' }}</span>: 
+        <span class="speed">{{ stat.wpm }} WPM</span>, 
+        <span class="accuracy">{{ stat.accuracy }}% Accuracy</span>
+      </div>
+    </div>
+
+    <div class="average-section" *ngIf="stats.length > 0">
+      <p>Average Speed: <span class="speed">{{ averageWpm | number:'1.0-0' }} WPM</span></p>
+      <p>Average Accuracy: <span class="accuracy">{{ averageAccuracy | number:'1.0-0' }}%</span></p>
+    </div>
+
+    <button class="btn btn-back" routerLink="/test">
+      Back to Typing Test
+    </button>
+  </div>
+</div>

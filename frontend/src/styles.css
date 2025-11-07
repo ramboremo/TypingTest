@@ -1,0 +1,4 @@
+/* Applies this gradient background to the entire application */
+body {
+  background: linear-gradient(135deg, #6b7280, #1e3a8a);
+}

@@ -1,0 +1,44 @@
+<!-- This HTML is now free of Tailwind CSS classes -->
+<div class="login-container">
+  <div class="login-card">
+    <h1 class="title">
+      <span class="wave-text">T</span><span class="wave-text">y</span><span class="wave-text">p</span><span class="wave-text">i</span><span class="wave-text">n</span><span class="wave-text">g</span>
+      <span> </span>
+      <span class="wave-text">T</span><span class="wave-text">e</span><span class="wave-text">s</span><span class="wave-text">t</span>
+      <span> </span>
+      <span class="wave-text">L</span><span class="wave-text">o</span><span class="wave-text">g</span><span class="wave-text">i</span><span class="wave-text">n</span>
+    </h1>
+    <h2 class="subtitle">Sign in to start typing!</h2>
+    
+    <!-- Updated Angular Form -->
+    <form (ngSubmit)="onLogin()" #loginForm="ngForm">
+      <div class="input-group">
+        <input 
+          type="email" 
+          id="email" 
+          name="email" 
+          placeholder="Email ID" 
+          required
+          [(ngModel)]="email">
+      </div>
+      <div class="input-group">
+        <input 
+          type="password" 
+          id="password" 
+          name="password" 
+          placeholder="Password" 
+          required
+          [(ngModel)]="password">
+      </div>
+
+      <button type="submit" class="btn btn-login" [disabled]="!loginForm.valid">
+        Login
+      </button>
+
+      <button type="button" class="btn btn-signup" routerLink="/signup">
+        Sign Up
+      </button>
+    </form>
+  </div>
+</div>
+
