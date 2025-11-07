@@ -1,0 +1,38 @@
+version: '3'
+services:
+  mongo:
+    image: mongo:latest
+    container_name: mongo
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+
+  mongo-express:
+    image: mongo-express:latest
+    container_name: mongo-express
+    ports:
+      - "8081:8081"
+    environment:
+      - ME_CONFIG_MONGODB_SERVER=mongo
+      - ME_CONFIG_MONGODB_PORT=27017
+    depends_on:
+      - mongo
+
+  node-app:
+    image: node:latest
+    container_name: node-app
+    working_dir: /app/backend
+    volumes:
+      - .:/app
+    ports:
+      - "3000:3000"
+    environment:
+      - MONGO_URL=mongodb://mongo:27017/typingTestDB
+    command: bash -c "npm install && npm start"
+    depends_on:
+      - mongo
+
+volumes:
+  mongo-data:
+

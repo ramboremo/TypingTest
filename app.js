@@ -8,7 +8,7 @@ const statsRouter = require('./routes/stats');
 const app = express();
 
 // Connect to MongoDB
-mongoose.connect('mongodb+srv://typingtest:typingtest@typingtestcluster.w7xupcm.mongodb.net/typingTestDB?appName=TypingTestCluster', { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect('mongodb://localhost:27017/typingTestDB', { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => console.log('Connected to MongoDB'))
   .catch(err => console.error('MongoDB error:', err));
 
