@@ -29,4 +29,7 @@ services:
       - MONGO_URL=mongodb://mongo:27017/typingTestDB
     depends_on:
       - mongo
+ 
 
+volumes:
+  mongo-data:
