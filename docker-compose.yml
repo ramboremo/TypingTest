@@ -19,20 +19,14 @@ services:
     depends_on:
       - mongo
 
-  node-app:
-    image: node:latest
-    container_name: node-app
+  typingtest:
+    image: typingtest:${BUILD_NUMBER}
+    container_name: typingtest
     working_dir: /app/backend
-    volumes:
-      - .:/app
     ports:
       - "3000:3000"
     environment:
       - MONGO_URL=mongodb://mongo:27017/typingTestDB
-    command: bash -c "npm install && npm start"
     depends_on:
       - mongo
-
-volumes:
-  mongo-data:
 
