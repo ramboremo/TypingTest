@@ -22,7 +22,7 @@ services:
   typingtest:
     image: typingtest:${BUILD_NUMBER}
     container_name: typingtest
-    working_dir: /app/backend
+    working_dir: /app
     ports:
       - "3000:3000"
     environment:
