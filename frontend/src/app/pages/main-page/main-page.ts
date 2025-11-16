@@ -44,7 +44,8 @@ export class MainPage implements OnInit {
     "The bright sun is very hot today, and everyone is looking for shade.",
     "My cute dog is happy when I give him food and take him for a walk.",
     "It is a big green tree that gives cool shade and many sweet fruits.",
-    "They drink clean cold water now because they were feeling very thirsty."
+    "They drink clean cold water now because they were feeling very thirsty.",
+    "My fluffy rabbit gets excited when I bring him carrots and let him hop around."
   ],
 
   intermediate: [
